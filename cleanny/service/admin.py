@@ -5,8 +5,8 @@ from django.utils.html import format_html
 
 @admin.register(Worker)
 class WorkerAdmin(admin.ModelAdmin):
-    list_display = ('last_name', 'first_name', 'email', 'photo', 'show_photo')
-    fields = ['last_name', 'first_name', 'email', 'photo']
+    list_display = ('last_name', 'first_name', 'email', 'photo', 'work_story', 'experience', 'show_photo')
+    fields = ['last_name', 'first_name', 'email', 'work_story', 'experience', 'photo']
     readonly_fields = ["show_photo"]
 
     def show_photo(self, obj):

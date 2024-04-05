@@ -19,6 +19,9 @@ class Worker(models.Model):
     work_story = models.TextField(help_text="Введите историю о заказе",
                                   verbose_name="История о заказе",
                                   blank=True)
+    experience = models.IntegerField(help_text="Введите стаж работы",
+                                     verbose_name="Стаж работы",
+                                     blank=True)
 
 
 class Client(models.Model):

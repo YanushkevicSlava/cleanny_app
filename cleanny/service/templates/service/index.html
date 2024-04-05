@@ -1,31 +1,5 @@
-<html lang="en">
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
-    <script defer src="/static/js/bootstrap.bundle.min.js"></script>
-</head>
-<body>
-  <div class="container-fluid p-1 bg-warning text-white text-center">
-    <div class="row">
-      <div class="col-2 text-end">
-          <img src="{% static 'images/cleaning-woman.jpg' %}" width="70" height="70">
-      </div>
-      <div class="col-2">
-          <h3>КЛИНИНГОВЫЙ ЦЕНТР</h3>
-      </div>
-      <div class="col-3">
-          <h4>Уборка домов и квартир</h4>
-      </div>
-      <div class="col-2">
-          <h4>Расчёт стоимости после ремонта</h4>
-      </div>
-      <div class="col-2">
-          <h4>+375 (11) 123-45-67</h4>
-      </div>
-    </div>
-  </div>
+{% extends "service/base.html" %}
+{% block content %}
       <div class="container-fluid p-1 bg-success text-white text-center">
         <div class="row">
             <div class="col-md-12">
@@ -43,17 +17,57 @@
         <input type="text" name="room" id="room">
         </p>
         <p>
-        <label for="san_room">Введите количество сан узлов:</label>
+        <label for="san_room">Введите количество санузлов:</label>
         <input type="text" name="san_room" id="san_room">
         </p>
             <p><button type="submit">Рассчитать</button></p>
     </form>
                      <p><h2>Результат: {{ calculate }} руб.</h2></p>
-</div>
+    </div>
 
             </div>
             <div class="col-3"></div>
         </div>
       </div>
+    <div class="container-fluid p-1 bg-secondary text-white text-center border border-primary">
+        <h2>У нас вы получите:</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Многолетний стаж работы в клининге</h3>
+            </div>
+            <div class="col-md-4">
+                <h3>Возможность выбора персонального клинера</h3>
+            </div>
+            <div class="col-md-4">
+                <h3>Только опытнеёших клинеров прошедших отбор</h3>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid p-1 bg-success text-white text-center">
+        <h3>Мы с боьшим трепетом относимся к уборке вашего дома т.к понимаем насколько это важно для вас! </h3>
+        <div class="row text-start">
+            <li>У нас Вы можете выбрать подходящих вам 2-3 клинеров и закрепить их за собой.</li>
+        </div>
+        <div class="row text-start">
+            <li>Если вам что-то не понравится, то мы готовы переделать уборку бесплатно или вернуть деньги, не задавая лишних вопросов.</li>
+        </div>
+        <div class="row text-start">
+            <li>У нас работают обученные клинеры, а не “уборщицы”. Тактичность, приветливость и внимательность к мелочам для нас важны не меньше, чем качество мытья полов.</li>
+        </div>
+    </div>
+    <div class="container-fluid p-1 bg-success text-white text-center">
+        <div class="row">
+            <h2>Наши клинеры не подведут вас в любой ситуации</h2>
+            <h4>Смело можем сказать, что наши клинеры — это не люди с улицы. Каждый из них прошёл обучение и обязательную стажировку для того, чтобы стать частью нашей команды. Убедитесь в этом и Вы!</h4>
+        </div>
+        <div class="row border border-primary">
+            <div class="col-md-4">
+                <img src="{{ worker.photo.url }}" alt="" width="170" height="170">
+            </div>
+            <div class="col-md-8">
+                <h5>{{ worker.work_story}}</h5>
+            </div>
+        </div>
+    </div>
 </body>
-</html>
+{% endblock %}

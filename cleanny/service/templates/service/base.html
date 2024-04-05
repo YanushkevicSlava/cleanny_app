@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <script defer src="/static/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+  <div class="container-fluid p-1 bg-warning text-white text-center border border-dark">
+    <div class="row">
+      <div class="col-2 text-end">
+          <img src="{% static 'images/cleaning-woman.jpg' %}" width="70" height="70">
+      </div>
+      <div class="col-2">
+          <h3>КЛИНИНГОВЫЙ ЦЕНТР</h3>
+      </div>
+      <div class="col-3">
+          <h4>Уборка домов и квартир</h4>
+      </div>
+      <div class="col-2">
+          <h4>Расчёт стоимости после ремонта</h4>
+      </div>
+      <div class="col-2">
+          <h4>+375 (11) 123-45-67</h4>
+          <p>с 9:00 до 21:00 без выходных</p>
+      </div>
+    </div>
+  </div>
+    {% block content %}
+    {% endblock content %}
+  <div class="container-fluid p-1 bg-warning text-white text-center border border-dark">
+    <div class="row">
+      <div class="col-2 text-end">
+          <img src="{% static 'images/cleaning-woman.jpg' %}" width="70" height="70">
+      </div>
+      <div class="col-2">
+          <h3>КЛИНИНГОВЫЙ ЦЕНТР</h3>
+      </div>
+      <div class="col-3">
+          <h4>Уборка домов и квартир</h4>
+      </div>
+      <div class="col-2">
+          <h4>Расчёт стоимости после ремонта</h4>
+      </div>
+      <div class="col-2">
+          <h4>+375 (11) 123-45-67</h4>
+          <p>с 9:00 до 21:00 без выходных</p>
+      </div>
+    </div>
+  </div>
+
+ <div class="container-fluid">
+      <div class="row bg-primary text-center text-white lh-1 my-2">
+          {% block footer %}
+            <div class="col-6 text-start">
+                <h6>© 2010 ООО «Super Klynning», УНП 223635262626</h6>
+            </div>
+            <div class="col-6 text-end">
+                <h6>superklin@gmail.com</h6>
+            </div>
+          {% endblock footer %}
+      </div>
+  </div>
+</body>
+</html>
