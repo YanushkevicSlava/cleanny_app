@@ -16,6 +16,9 @@ class Worker(models.Model):
     photo = models.ImageField(upload_to="images",
                               help_text="Загрузите фото сотрудника",
                               verbose_name="Фото сотрудника")
+    work_story = models.TextField(help_text="Введите историю о заказе",
+                                  verbose_name="История о заказе",
+                                  blank=True)
 
 
 class Client(models.Model):
