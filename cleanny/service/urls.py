@@ -1,7 +1,7 @@
 from django.urls import path
-from .import views
-
+from .views import calculate_cost, order_create
 
 urlpatterns = [
-    path('', views.calculate_cost, name='index'),
+    path('', calculate_cost, name='index'),
+    path("orders-create/", order_create, name="order_create"),
 ]

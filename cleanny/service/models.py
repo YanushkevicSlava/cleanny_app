@@ -1,5 +1,4 @@
 from django.db import models
-from django.contrib.auth.models import User
 
 
 class Worker(models.Model):
@@ -24,8 +23,33 @@ class Worker(models.Model):
                                      blank=True)
 
 
-class Client(models.Model):
-    """Модель клиента"""
+class Service(models.Model):
+    """Модель предоставляемой услуги"""
+    name = models.CharField(max_length=100,
+                            help_text="Введите название услуги",
+                            verbose_name="Название услуги")
+    cost = models.IntegerField(help_text="Введите стоимость улуги",
+                               verbose_name="Стоимость услуги")
+
+    def __str__(self):
+        return self.name
+
+
+class Order(models.Model):
+    """Модель заказа"""
+    DISCOUNT = (
+        (0, '1 раз или первый раз'),
+        (7, 'раз в месяц 7%'),
+        (10, 'раз в две недели 10%'),
+        (15, 'раз в неделю 15%'),
+    )
+    cleaning_time = models.DateTimeField(help_text="Введите дату и время уборки",
+                                         verbose_name="Дата и время уборки",
+                                         )
+    services = models.ForeignKey('Service',
+                                 on_delete=models.CASCADE,
+                                 help_text="Выберите услуги",
+                                 verbose_name="Услуга")
     first_name = models.CharField(max_length=100,
                                   help_text="Введите имя",
                                   verbose_name="Имя клиента")
@@ -35,9 +59,9 @@ class Client(models.Model):
     surname = models.CharField(max_length=100,
                                help_text="Введите Отчество",
                                verbose_name="Отчество клиента")
-    email = models.CharField(max_length=100,
-                             help_text="Введите email",
-                             verbose_name="Email клиента")
+    email = models.EmailField(max_length=100,
+                              help_text="Введите email",
+                              verbose_name="Email клиента")
     tel = models.IntegerField(help_text="Введите номер телефона с кодом",
                               verbose_name="Номер клиента")
     street = models.CharField(max_length=100,
@@ -53,8 +77,8 @@ class Client(models.Model):
     flat = models.CharField(max_length=100,
                             help_text="Введите номер квартиры",
                             verbose_name="Номер квартиры клиента")
-    photo = models.ImageField(upload_to="images",
-                              help_text="Загрузите фото",
-                              verbose_name="Фото клиента",
-                              blank=True,
-                              null=True)
+    discount = models.IntegerField(help_text="Выберите переодичность уборки",
+                                   verbose_name="Переодичность уборки со скидкой",
+                                   blank=True, default=0,
+                                   choices=DISCOUNT)
+

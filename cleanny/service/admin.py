@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Worker
+from .models import Worker, Service, Order
 from django.utils.html import format_html
 
 
@@ -14,3 +14,15 @@ class WorkerAdmin(admin.ModelAdmin):
             f'<img src="{obj.photo.url}" style="max-height: 100px;">')
 
     show_photo.short_description = 'Фото'
+
+
+@admin.register(Service)
+class ServiceAdmin(admin.ModelAdmin):
+    list_display = ('name', 'cost')
+    fields = ['name', 'cost']
+
+
+@admin.register(Order)
+class OrderAdmin(admin.ModelAdmin):
+    list_display = ('cleaning_time', 'services', 'first_name', 'last_name', 'surname', 'email', 'tel', 'street',
+                    'housing', 'home', 'flat', 'discount')

@@ -22,11 +22,16 @@
         </p>
             <p><button type="submit">Рассчитать</button></p>
     </form>
-                     <p><h2>Результат: {{ calculate }} руб.</h2></p>
+                     {% if calculate %}
+                        <p><h2>Результат: {{ calculate }} руб.</h2></p>
+                     {% endif %}
     </div>
 
             </div>
             <div class="col-3"></div>
+        </div>
+        <div class="row text-center text-warning">
+            <h1><a href="{% url 'order_create' %}">Расчитать уборку</a></h1>
         </div>
       </div>
     <div class="container-fluid p-1 bg-secondary text-white text-center border border-primary">
@@ -65,9 +70,49 @@
                 <img src="{{ worker.photo.url }}" alt="" width="170" height="170">
             </div>
             <div class="col-md-8">
+                <h5>{{worker.first_name}}, работает клинером {{worker.experience}} года.</h5>
                 <h5>{{ worker.work_story}}</h5>
             </div>
         </div>
+    </div>
+    <div class="container-fluid p-1 bg-success text-white text-center">
+        <h2>Что входит в стандартную уборку?</h2>
+        <div class="row">
+            <div class="col-3 text-start">
+                <h5>Комната:</h5>
+                <li>убираем мусор</li>
+                <li>складываем вещи в доступных местах (внутрь шкафов не заглядываем!)</li>
+                <li>меняем постельное белье и заправляем кровати</li>
+                <li>убираем пыль со всех открытых поверхностей (шкафов, полок, картин, дверных косяков и т.д.)</li>
+            </div>
+            <div class="col-3 text-start">
+                <h5>Кухня:</h5>
+                <li>Протираем все доступные поверхности, включая фасад кухни, холодильника и микроволновки</li>
+                <li>Моем плиту и столешницу</li>
+                <li>Протираем подоконники, батареи, плинтусы, двери, ручки, выключатели</li>
+                <li>Моем пол</li>
+            </div>
+            <div class="col-3 text-start">
+                <h5>Санузел:</h5>
+                <li>Протираем все доступные поверхности, выключатели и дверные ручки</li>
+                <li>Моем и дезинфицируем унитаз</li>
+                <li>Моем душевую кабину, ванную, краны</li>
+                <li>Чистим зеркала и стеклянные поверхности</li>
+            </div>
+            <div class="col-3 text-start">
+                <h5>Коридор:</h5>
+                <li>Протираем все доступные поверхности</li>
+                <li>Протираем плинтусы, двери, ручки, выключатели</li>
+                <li>Моем пол</li>
+                <li>Моем зеркала</li>
+            </div>
+        </div>
+    <div class="container-fluid p-1 bg-secondary text-white text-center border border-primary">
+        <h2>96% клиентов очень довольны: 48 подлинных отзывов о КлинниБогини на Фейсбуке</h2>
+        <div class="row">
+            <div
+        </div>
+    </div>
     </div>
 </body>
 {% endblock %}
