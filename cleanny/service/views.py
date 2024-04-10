@@ -32,43 +32,6 @@ def calculate_cost(request):
         return render(request, template_name='service/index.html', context=context)
 
 
-# def order_create(request):
-#     if request.method == 'POST':
-#         form = FormCreateOrder(request.POST or None)
-#         if form.is_valid():
-#             first_name = form.cleaned_data.get("first_name")
-#             last_name = form.cleaned_data.get("last_name")
-#             surname = form.cleaned_data.get("surname")
-#             email = form.cleaned_data.get("email")
-#             tel = form.cleaned_data.get("tel")
-#             street = form.cleaned_data.get("street")
-#             housing = form.cleaned_data.get("housing")
-#             home = form.cleaned_data.get("home")
-#             flat = form.cleaned_data.get("flat")
-#             discount = form.cleaned_data.get("discount")
-#             cleaning_time = form.cleaned_data.get("cleaning_time")
-#             services = form.cleaned_data.get("services")
-#             obj = Order.objects.create(
-#                 first_name=first_name,
-#                 last_name=last_name,
-#                 surname=surname,
-#                 email=email,
-#                 tel=tel,
-#                 street=street,
-#                 housing=housing,
-#                 home=home,
-#                 flat=flat,
-#                 discount=discount,
-#                 cleaning_time=cleaning_time,
-#                 services=services
-#             )
-#             obj.save()
-#             return render(request, "HTML/join.html",{})
-#     else:
-#         form = FormCreateOrder()
-#         context = {"form": form}
-#         return render(request, "service/order-create.html", context=context)
-
 def order_create(request):
 
     context = {}
